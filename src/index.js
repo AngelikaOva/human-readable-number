@@ -12,7 +12,7 @@ let oneTen = function (number) {
         case 0: return '';
     }
 }
-let elevenNineteen = function (number) {
+let tenNineteen = function (number) {
     switch(number) {
         case 10: return 'ten';
         case 11: return 'eleven';
@@ -63,7 +63,7 @@ module.exports = function toReadable (number) {
         return oneTen(number);
     }
     if (number <= 19) {
-        return elevenNineteen(number);
+        return tenNineteen(number);
     }
     if (number <= 99) {
         if(number % 10 === 0) {
@@ -79,7 +79,7 @@ module.exports = function toReadable (number) {
             return (hundredths(Math.floor(number / 100)) + ' ' + oneTen(number % 10));
         }
         if(number % 100 <= 19 && number % 100 >= 10) {
-            return (hundredths(Math.floor(number / 100)) + ' ' + elevenNineteen(number % 100));
+            return (hundredths(Math.floor(number / 100)) + ' ' + tenNineteen(number % 100));
         }
         if(number % 10 === 0) {
             return hundredths(Math.floor(number / 100)) + ' ' + tenths((Math.floor((number % 100) / 10)))
